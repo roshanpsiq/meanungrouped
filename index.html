@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ungrouped Mean Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4caf50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .input-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-calculate {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-calculate:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4caf50;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <h2>Ungrouped Mean Calculator</h2>
+        <div class="input-group">
+            <label for="numbersInput">Numbers (comma separated):</label>
+            <input type="text" id="numbersInput" placeholder="Enter numbers">
+        </div>
+        <button class="btn-calculate" onclick="calculateMean()">Calculate Mean</button>
+        <div class="result" id="meanResult"></div>
+    </div>
+
+    <script>
+        function calculateMean() {
+            var numbersInput = document.getElementById('numbersInput').value.split(',').map(Number);
+            var sum = 0;
+
+            for (var i = 0; i < numbersInput.length; i++) {
+                sum += numbersInput[i];
+            }
+
+            var mean = sum / numbersInput.length;
+            document.getElementById('meanResult').innerHTML = 'Mean: ' + mean.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
